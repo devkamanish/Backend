@@ -1,0 +1,12 @@
+{
+  "courses": [
+    { "id": 1, "name": "Learn Python", "price": "5.99" },
+    { "id": 3, "name": "Learn C advance", "price": "10" },
+    { "id": 4, "name": "Learn ruby ", "price": "7.8" },
+    { "name": "intro to redux", "price": "7.8", "id": 5 },
+    { "name": "intro to binary", "price": "7.8", "id": 6 },
+    { "name": "redux toolkit", "price": "7.8", "id": 7 },
+    { "name": "redux toolkit", "price": "7.8", "id": 8 }
+  ]
+}
+    
