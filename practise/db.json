@@ -6,7 +6,8 @@
     { "name": "intro to redux", "price": "7.8", "id": 5 },
     { "name": "intro to binary", "price": "7.8", "id": 6 },
     { "name": "redux toolkit", "price": "7.8", "id": 7 },
-    { "name": "redux toolkit", "price": "7.8", "id": 8 }
+    { "id": 8, "name": "Learn cokking", "price": "500" },
+    { "id": 9, "name": "Learn french", "price": "500" },
+    { "id": 10, "instructor": "Manish devka", "price": "500" }
   ]
 }
-    

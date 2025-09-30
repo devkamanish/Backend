@@ -1,0 +1,9 @@
+{
+  "dishes": [
+    { "id": 1, "name": "Momossss", "price": 180 },
+    { "id": 2, "name": "Golgappae", "price": 200 },
+    { "id": 3, "name": "Pizzza", "price": 300 },
+    { "id": 4, "name": "chicken kebab", "price": 500 }
+  ]
+}
+
