@@ -1,15 +1,19 @@
 const { count } = require("console");
 const express = require("express");
 const fs = require("fs");
+
 const courseRouter = require("./routes/course.routes")
 const lectureRoutes = require("./routes/lecture.routes")
 
+
 const app = express();
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("<h1>Hello world</h1>");
 });
+
 
 app.use("/courses", courseRouter)
 
