@@ -12,6 +12,7 @@ StudentRouter.post("/", async (req, res) => {
   }
 });
 
+
 StudentRouter.delete("/:id", async (req, res) => {
   try {
     const student = await studentModel.findByIdAndUpdate(req.params.id, {

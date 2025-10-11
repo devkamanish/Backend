@@ -26,6 +26,20 @@ Courserouter.delete("/:id",async (req, res)=>{
     }
 })
 
+Courserouter.get("/:id/students"  , async(req,res)=>{
+
+    const {id} = req.params;
+    try{
+        let enrollments = await EnrollmentModel.find({
+            courseId: id,
+            isActive: true
+        }, {_id:0, courseId:0, })
+        res.status(200).json({msg : "Enrollments" , enrollments})
+    }catch (err) {
+    res.status(500).json({ msg: "Something went wrong.." });
+  }
+})
+
 
 
 module.exports = Courserouter;
