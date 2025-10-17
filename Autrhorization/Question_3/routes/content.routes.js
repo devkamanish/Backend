@@ -29,3 +29,4 @@ router.delete("/:id", authMiddleware("admin"), async (req, res) => {
 });
 
 export default router;
+
