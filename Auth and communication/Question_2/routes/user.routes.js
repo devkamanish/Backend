@@ -91,18 +91,42 @@ UserRouter.post("/forget-password", async (req, res) => {
   }
 });
 
-UserRouter.post("/reset-password", (req, res) => {
+UserRouter.post("/reset-password", async (req, res) => {
   const { token } = req.query;
   const { newPassword } = req.body;
   try {
-    let decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    let decoded = jwt.verify(token, process.env.JWT_SECRET);
     if (decoded) {
       console.log(decoded);
-      res.status(200).json({ msg: "Decoded successfully" });
+      let user = await Usermodel.findById(decoded.userId);
+      bcrypt.hash(newPassword, saltRounds, async function (err, hash) {
+        // Store hash in your password DB.
+        if (err) {
+          res.status(500).json({ msg: "something went wrong" });
+        } else {
+          user.password = hash;
+          await user.save();
+          console.log(user);
+
+          res.json({ msg: "Password reset successfully" });
+        }
+      });
     }
-  } catch (error) {
-    res.status(500).json({ msg: "Something went wrong" });
+  } catch (err) {
+    if (err.message == "jwt expired") {
+      res
+        .status(403)
+        .json({
+          msg: "Password reset link expired, please click forget password again",
+        });
+    } else {
+      res
+        .status(500)
+        .json({ msg: "Something went wrong, please try again later",error: err.message});
+    }
   }
 });
-
 module.exports = UserRouter;
+
+
+

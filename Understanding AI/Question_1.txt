@@ -1,0 +1,148 @@
+1. What is Artificial Intelligence (AI)?
+Artificial Intelligence (AI) refers to the branch of computer science that aims to create machines or systems capable of performing tasks that normally require human intelligence. These tasks can include perception (e.g., recognising images or sounds), reasoning, problem‑solving, planning, language understanding, learning, and decision‑making. In other words, an AI system attempts to mimic cognitive functions of humans or other intelligent beings.
+AI systems can range from relatively simple rule‑based automation (e.g., “if this, then that”) to very advanced systems employing machine learning and deep learning to generalize from data, adapt over time, and operate in less‐defined environments.
+
+2. What are Large Language Models (LLMs)? How do they work?
+Large Language Models (LLMs) are a type of AI model specifically designed for processing and generating human‐language text (and sometimes other modalities). They are “large” in the sense that they have very many parameters (often billions or more) and are trained on massive corpora of text data. 
+
+Here’s how they generally work:
+
+Training phase: The model is pre‑trained on a huge amount of text (books, web pages, articles, code, etc.) in a self‑supervised way (for example, predicting the next word/token in a sentence). 
+
+Architecture: Most modern LLMs use the Transformer architecture (especially decoder‑only or encoder‑decoder designs) which uses mechanisms like self‐attention to capture relationships between tokens across long contexts. 
+
+
+Tokenization: Before being processed, text is broken down into tokens (which may be words, sub‑words, characters or word‑pieces) that the model uses as its “units”. 
+
+
+Inference / generation: When given a prompt (input), the model uses what it has learned about language patterns to predict what comes next (next token) repeatedly until a full response is generated. For generation tasks it might sample or choose the most probable token iteratively. 
+
+
+Fine‑tuning / adaptation: After pretraining, models may be fine-tuned on specific datasets for tasks like question‑answering, summarization, translation, code generation, or oriented toward safe/controlled outputs. 
+
+
+Because of the massive scale and general language‐understanding ability, LLMs are able to perform a wide variety of tasks (zero‑shot, few‑shot, in‑context learning) beyond what earlier narrower NLP models could do. 
+
+
+3. What is the difference between Traditional AI and Generative AI?
+Here are the main distinctions between Traditional AI (sometimes called classical AI, narrow AI, rule‑based or predictive AI) and Generative AI:
+
+Purpose / output
+
+Traditional AI tends to focus on analysing data, making predictions or classifications, automating well‑defined processes (for example: fraud detection, recommendation engines, anomaly detection). 
+
+
+Generative AI is designed to create new content—text, images, audio, video, code—rather than merely analysing or predicting. 
+
+
+Learning and rules
+Traditional AI often relies on explicit rules, heuristics, structured features, or supervised learning on labelled data; it is more constrained. 
+
+Generative AI uses models (e.g., large neural networks, transformers) that learn patterns from large unstructured datasets and can generalize to generate new content. 
+
+Flexibility / adaptability
+
+Traditional AI systems are more rigid: they tend to perform well in their domain but struggle outside it or when the environment changes without retraining. 
+
+Generative AI is more adaptable: when trained broadly, it can handle a variety of tasks (via prompting) without being retrained for each specific task. 
+
+Transparency / interpretability
+
+Traditional AI systems are often more transparent (you can trace rules or features).
+
+Generative AI (especially deep learning‐based) often operates as a “black box”; understanding exactly how it arrived at a particular output is harder. 
+
+Examples
+
+Traditional AI: classical machine learning models (logistic regression, decision trees), image classification models, robotics using rule‑based control.
+
+Generative AI: models that generate text (LLMs), generate images (e.g., DALL‑E, Stable Diffusion), generate music, generate code or synthetic data.
+
+In short: Traditional AI = analysing & predicting within narrow domain; Generative AI = creating new content (text/images/etc) and offering more generalised, flexible interaction.
+
+4. Explain the concept of “prompting” in the context of LLMs. Why is it important?
+
+What is prompting?
+Prompting refers to the practice of providing input (instructions, context, examples, data) in natural language (or structured text) to a Large Language Model (LLM) in order to guide it to produce the desired output. In effect, you are telling the model “this is the task” and “this is how I’d like you to respond.” 
+
+Why is it important?
+
+The output of an LLM is highly dependent on how the prompt is formulated. Slight changes in wording, structure, style or included context can yield dramatically different responses. 
+
+
+Good prompting aligns the model’s “attention” to the intended task, reduces ambiguity, clarifies constraints (tone, length, format), thereby increasing the likelihood of correct, relevant, and useful results. 
+
+
+Prompting is effectively the user interface to the LLM: since the model is not being retrained for each task, the prompt serves to steer it. Thus prompt‐design (or “prompt engineering”) is a key skill for effectively using LLMs. 
+
+
+Elements of a good prompt
+According to guidance:
+
+Role & goal: e.g., “You are a helpful assistant…”
+
+Instructions: what to do, how to do it, format constraints
+
+Context: any relevant background or data
+
+Input: the actual content to process
+
+Output format: tells the model what form the answer should take (bullets/essay/JSON) 
+
+In summary, prompting matters because with an LLM you don’t always need to change or retrain the model; you can get very different results by changing how you ask. Good prompting allows you to harness the model’s capabilities more safely, efficiently and with better alignment to your goal.
+
+5. What is the role of "tokens" in a language model, and how do they impact the output?
+
+What are tokens?
+Tokens are the basic units of text that a language model processes. A token could be a word, a part of a word (sub‑word), a punctuation mark, or even a character, depending on the tokenization scheme. 
+
+
+Why tokens matter and how they work:
+
+When you input text, the model breaks it into tokens (tokenization). Each token is mapped to a numeric ID and then embedded into vectors for processing. 
+
+
+The model predicts the next token(s) in sequence based on preceding tokens and context. Output is generated token by token. 
+
+
+Tokens determine the model’s context window or token limit: each model has a maximum number of tokens it can process at once (input + output). If the total exceeds that, context may be truncated or performance degraded. 
+
+
+The number and size of tokens affect efficiency, cost (in API usage), and the granularity of what the model can handle (rare words, multilingual, sub‑words). 
+
+
+Impact on output:
+
+Because the model works at token‐level, the way you phrase your input (how many tokens, which tokens) can affect how well the model understands context and generates output.
+
+If you use many tokens (long prompt), some of the earlier context may drop out if you approach the token limit, thereby affecting coherence.
+
+The model may consume tokens both for your prompt and for its response; hence long prompts leave fewer tokens for its answer (depending on limits).
+
+In summary, tokens are the “atoms” of text for LLMs. Understanding how tokenization works, token limits, and how many tokens you are using can help you better manage the performance, cost, and quality of model output.
+
+6. What are some limitations or risks of using Generative AI models like ChatGPT?
+There are several important limitations and risks to be aware of when using generative AI models (such as LLMs). Some of them include:
+
+Hallucination / Fabrication: These models can produce plausible‐sounding but incorrect or made‑up information (i.e., “hallucinations”). They don’t truly “understand” the world in the human sense; they are pattern‐matching and next‐token predicting systems. 
+
+
+Bias and fairness: The models reflect biases that exist in their training data (cultural, gender, racial, ideological). They may replicate or amplify harmful stereotypes or produce biased outputs. 
+
+Lack of transparency / interpretability: It’s often difficult to know why a model produced a particular response. The internal mechanisms (especially deep neural networks) can be opaque. 
+
+
+Context‐window limitations / forgetting: Models have limits on how much context they can process; very long conversations or documents may cause earlier parts to drop out, leading to loss of coherence. 
+
+Security and misuse risks: Generative AI models can be manipulated via prompt injection, used to generate disinformation, spam, deepfakes, or malicious code. 
+
+Privacy / confidentiality: If you feed sensitive or private data into models, there is risk of that data being leaked, or the model producing undesirable outputs revealing proprietary/training data patterns. 
+
+Over‐reliance / automation bias: Users may over‐trust the outputs of the model, assuming high accuracy or reliability when in fact verification is required.
+
+Ethical / legal issues: Use of copyrighted data for training without proper attribution or licensing, issues around intellectual property when models generate content, ownership of generated results.
+
+Resource and cost factors: Training and running large models require significant computational resources, energy, and cost; deployment may be expensive. 
+
+
+In short: while generative AI is powerful, it is not infallible and must be used with awareness of its limitations and risks. Users and organizations need to incorporate human oversight, verification, and ethical governance.
